@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+body {
+  font-family: "Source Code Pro", monospace;
+}
+
+
+
+.gradient-text {
+  background: linear-gradient(to right, #27f3d1, #2f3d08, #fc3333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.additional-info {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  width: 50%; 
+  max-width: 800px; 
+}
+
+.additional-info.show {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .additional-info {
+    width: 90%;
+  }
+}
+
