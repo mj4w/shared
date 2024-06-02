@@ -24,7 +24,7 @@ function Achievements() {
     };
 
   return (
-    <div className='flex flex-col justify-center items-center h-screen overflow-y-auto'>
+    <div className='flex flex-col justify-center items-center h-screen overflow-y-auto' style={{ backgroundImage: `url('./assets/bg_lang.png')`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
     <h1 className="text-3xl font-bold mb-6">Achievements</h1>
     <div className="max-w-lg border border-gray-300 p-6 rounded-lg shadow-lg">
       <img src={achievements[currentAchievement].image} alt="Award" className="w-full h-auto mb-4" />
