@@ -1,6 +1,13 @@
 import React from 'react';
 
 const ProjectCard = ({ imageUrl, codeUrl, previewUrl, title, description, languages }) => {
+  const handlePreviewClick = (e) => {
+    if (!previewUrl || previewUrl === '#') {
+      e.preventDefault();
+      alert('Preview is not available');
+    }
+  };
+
   return (
     <div className="flex-shrink-0 mx-4">
       <div className="border border-black rounded-md p-4">
@@ -20,14 +27,17 @@ const ProjectCard = ({ imageUrl, codeUrl, previewUrl, title, description, langua
         <p className="text-gray-700 mb-4 max-w-xs text-center">{description}</p>
         <div className="flex justify-between items-center">
           <a
-            href={codeUrl}
+            href={codeUrl} 
+            target='_blank'
             className="uppercase font-semibold border border-black hover:bg-blue-500 hover:text-white hover:border-blue-500 transition duration-500 ease-in-out px-4 py-2 rounded-md mr-2"
           >
             Code
           </a>
           <a
             href={previewUrl}
-            className="bg-green-500 text-white px-4 py-2 rounded-md"
+            onClick={handlePreviewClick}
+            target = "_blank"
+            className={`px-4 py-2 rounded-md ${!previewUrl || previewUrl === '#' ? 'bg-gray-500 text-white cursor-not-allowed' : 'bg-green-500 text-white'}`}
           >
             Preview
           </a>
@@ -36,11 +46,18 @@ const ProjectCard = ({ imageUrl, codeUrl, previewUrl, title, description, langua
     </div>
   );
 };
+
 const getLanguageIcon = (language) => {
   const languageIcons = {
     JavaScript: 'JS',
+    Python: 'Py',
+    HTML: 'HTML',
+    Java: 'Java',
+    Kotlin: 'Kt',
+    XML: 'XML',
+    'C++': 'C++',
+    OpenGL: 'GL',
   };
-
 
   if (languageIcons[language]) {
     return (
